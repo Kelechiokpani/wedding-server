@@ -12,4 +12,4 @@ export const connectDB = async () => {
     }
 };
 
-//node --loader ts-node/esm src/server.ts
+//node --loader ts-node/esm src/index.ts
