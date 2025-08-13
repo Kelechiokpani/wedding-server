@@ -5,7 +5,7 @@ export interface IGuest extends Document {
     name: string;
     phone: string;
     qrImage?: string
-    status: "accepted" | "declined";
+    status: "accepted" | "declined" | "pending";
     checkedIn: boolean;
     acceptedAt?: Date;
     checkedInAt?: Date;
@@ -14,12 +14,12 @@ export interface IGuest extends Document {
 const GuestSchema = new Schema<IGuest>({
     inviteId: { type: String, required: true, unique: true },
     qrImage: String,
-    name:  { type: String, required: true},
-    phone: { type: String, required: true},
+    name:  { type: String, required: false},
+    phone: { type: String, required: false},
     status: {
         type: String,
-        enum: ["accepted", "declined"],
-        default: "declined",
+        enum: ["accepted", "declined", "pending"],
+        default: "pending",
         required: true
     },
     checkedIn: { type: Boolean, default: false },
