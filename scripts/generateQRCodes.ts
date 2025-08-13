@@ -46,7 +46,8 @@ if (!fs.existsSync(outputDir)) {
             usedCodes.add(randomPart);
 
             const guestCode = `${prefix}-${randomPart}`;
-            const url = `http://192.168.0.150:3000/accept/${guestCode}`;
+            // const url = `http://192.168.0.150:3000/accept/${guestCode}`;
+            const url = `https://wedding-client-duq7.vercel.app/accept/${guestCode}`;
 
             const qr = await QRCode.toDataURL(url);
             const pngBuffer = Buffer.from(qr.split(",")[1], "base64");
