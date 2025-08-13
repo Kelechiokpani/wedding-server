@@ -19,7 +19,7 @@ connectDB().then((data:any) => {});
 // Routes
 app.use("/api/", inviteRoutes);
 
-const PORT = process.env.BACKEND_PORT || 6000;
-app.listen(PORT, () => {
-    console.log(`🚀Wedding Server running on port http://localhost:${PORT}`);
+const port = process.env.BACKEND_PORT || 6000;
+app.listen(port, () => {
+    console.log(`🚀Wedding Server running on port http://localhost:${port}`);
 });
