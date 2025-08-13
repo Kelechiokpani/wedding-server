@@ -14,12 +14,13 @@ export interface IGuest extends Document {
 const GuestSchema = new Schema<IGuest>({
     inviteId: { type: String, required: true, unique: true },
     qrImage: String,
-    name: String,
-    phone: String,
+    name:  { type: String, required: true},
+    phone: { type: String, required: true},
     status: {
         type: String,
         enum: ["accepted", "declined"],
-        default: "declined"
+        default: "declined",
+        required: true
     },
     checkedIn: { type: Boolean, default: false },
     acceptedAt: Date,
