@@ -2,8 +2,8 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import {connectDB}  from "./config/db";
-import inviteRoutes from "./routes/invites";
+import {connectDB}  from "./src/config/db";
+import inviteRoutes from "./src/routes/invites";
 
 const app = express();
 app.use(cors());
