@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E2Labs x Ambers - Invitation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 140px;
+        }
+
+        .header-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header-image img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        .content h1 {
+            color: #333;
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .button a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #e67e22;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .unsubscribe {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .unsubscribe a {
+            color: #888888;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #888888;
+            margin-top: 20px;
+        }
+
+        .social-icons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .event-details {
+            margin: 20px 0;
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .event-details p {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="logo">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/057/553/413/small/impressive-modern-colorful-webinar-invitation-banner-transparent-background-premium-png.png" alt="Event Logo">
+    </div>
+    <div class="header-image">
+        <img src="https://t4.ftcdn.net/jpg/04/38/10/39/360_F_438103992_vM4zo7KU8IQ8EOAEfPxjfYXzdX40WV2I.jpg" alt="Event Banner" style="width: 100%">
+    </div>
+    <div class="content">
+          <p>Welcome to E2Labs Inc. Here’s your unique event QR Code: 🎉</p>
+
+         <div style="font-family: Arial, sans-serif;">
+            <h3><%= greeting %>🎉</h1>
+            <p>Thank you for registering. Please find your QR code below:</p>
+
+            <!-- <img src="cid:qrImage" alt="QR Code" style="width:200px; height:200px;" /> -->
+                        <% if (qrCode) { %>
+                            <div style="text-align:center; margin:20px 0;">
+                                <img src="cid:qrCode" 
+                                    alt="Your QR Code" 
+                                    style="max-width:200px; height:200px;" />
+                            </div>
+                        <% } %>
+            
+         </div>
+
+        <div class="event-details">
+            <p><strong>📅 Date:</strong> 20th November 2025</p>
+            <p><strong>⏰ Time:</strong> 3pm</p>
+            <p><strong>📍 Location:</strong> Aba Abia State</p>
+        </div>
+       
+        <p>You can scan this QR code at the event to confirm your registration.</p>
+
+        <p>We would be honored to have you join us for this special occasion.  
+           Please confirm your attendance by clicking the button below.</p>
+    </div>
+
+    <div class="social-icons">
+        <a href="<%= facebook %>" target="_blank"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"></a>
+        <a href="<%= twitter %>" target="_blank"><img src="https://img.icons8.com/color/48/twitter-circled--v1.png" alt="Twitter"></a>
+        <a href="<%= instagram %>" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram"></a>
+    </div>
+
+    <div class="unsubscribe">
+        <a href="mailto:unsubscribe@kreativerock.com">Unsubscribe</a>
+    </div>
+
+    <div class="footer">
+        <p>We look forward to seeing you at the Event!</p>
+        <p>&copy; <%= new Date().getFullYear() %> Event Organizer. All rights reserved.</p>
+        <p>Lagos, Nigeria</p>
+    </div>
+</div>
+</body>
+</html>

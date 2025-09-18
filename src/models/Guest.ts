@@ -4,6 +4,7 @@ export interface IGuest extends Document {
     inviteId: string;
     name: string;
     phone: string;
+    email: string;
     qrImage?: string
     status: "accepted" | "declined" | "pending";
     checkedIn: boolean;
@@ -16,6 +17,7 @@ const GuestSchema = new Schema<IGuest>({
     qrImage: String,
     name:  { type: String, required: false},
     phone: { type: String, required: false},
+    email: { type: String, required: false, unique: true},
     status: {
         type: String,
         enum: ["accepted", "declined", "pending"],

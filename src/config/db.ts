@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
-
+import {FRONT_END_DOMAIN, isDev, MONGO_URL, PORT,} from ".";
 
 export const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI as string);
+        await mongoose.connect(MONGO_URL as string);
         // await mongoose.connect(process.env.MONGO_URI as string || "mongodb://127.0.0.1:27017/wedding");
         console.log("✅ MongoDB connected");
     } catch (error) {

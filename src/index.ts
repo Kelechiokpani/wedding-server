@@ -1,27 +1,40 @@
-import "dotenv/config";
+import dotenv from 'dotenv';
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import {connectDB}  from "./config/db";
-import inviteRoutes from "./routes/invites";
+import db from "./db/index";
+import {MONGO_URL, PORT,} from "./config/index";
+import routes   from "./routes/index";
 
 
-const port = process.env.BACKEND_PORT || 6000;
+
+
+dotenv.config();
+
+// const PORT = process.env.BACKEND_PORT || 6000;
 const app = express();
+
+// Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '5mb' }));
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
 
-
-app.get("/", (req, res) => {
-    res.send("Wedding API is running 🚀");
-});
-
-connectDB().then((data:any) => {});
+// connectDB().then((data:any) => {});
+new db(console).connect(MONGO_URL as string);
 
 // Routes
-app.use("/api/", inviteRoutes);
+// app.use("/api/invites", inviteRoutes);
+
+app.use('/api', routes);
+
+// Basic route for health check
+app.get('/', (req, res) => {
+    res.send("E2Labs API is running 🚀");
+});
 
 
-app.listen(port, () => {
-    console.log(`🚀Wedding Server running on port http://localhost:${port}`);
+
+app.listen(PORT, () => {
+    console.log(`E2Labs Event Server running on port http://localhost:${PORT}`);
 });
